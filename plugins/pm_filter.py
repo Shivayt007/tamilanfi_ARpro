@@ -419,7 +419,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('search here movie', switch_inline_query_current_chat=')
+            InlineKeyboardButton('search here movie', switch_inline_query_current_chat='')
             ],[
             InlineKeyboardButton('Join US ', url='https://t.me/tamil_links_official')],
             [
