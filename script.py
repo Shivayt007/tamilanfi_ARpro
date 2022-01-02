@@ -18,4 +18,12 @@ My name is <a href=https://t.me/{}>{}</a>!
 
     
 
+LOG_TEXT_G = """#NewGroup
 
+Group = {}(<code>{}</code>)
+
+Total Members = <code>{}</code>
+
+Added By - {}
+
+"""
