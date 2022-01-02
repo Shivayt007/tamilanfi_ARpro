@@ -18,9 +18,9 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official'),
-                )
-            ],
+                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
+                
+            
             [
                 InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
             ]
@@ -39,9 +39,9 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official'),
-                )
-            ],
+                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
+                
+            
             [
                 InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
             ]
@@ -80,7 +80,7 @@ async def start(client, message):
             )
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons = [[
+        buttons = [
             [
                 InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official'),
                 )

@@ -348,9 +348,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
         buttons = [
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official'),
-                )
-            ],
+                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
+                
+            
             [
                 InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
             ]
@@ -400,9 +400,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{title}"
         buttons = [
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official'),
-                )
-            ],
+                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
+                
+            
             [
                 InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
             ]
