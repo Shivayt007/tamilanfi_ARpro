@@ -401,7 +401,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
             ]]
         await query.answer()
         await client.send_cached_media(
@@ -414,12 +414,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
-        buttons =  [[
+        buttons = [[
             InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
         
         await query.message.edit_text(
