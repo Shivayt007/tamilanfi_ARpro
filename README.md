@@ -49,7 +49,7 @@ You can deploy this bot anywhere.
 <details><summary>Deploy to Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/shiva20991/tgmoviebot">
+<a href="https://heroku.com/deploy?template=https://github.com/Shivayt007/tamilanfi_ARpro">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
