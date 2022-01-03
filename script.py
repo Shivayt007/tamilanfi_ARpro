@@ -3,7 +3,7 @@ class Script(object):
 
 My name is <a href=https://t.me/{}>{}</a>!
 
-<b>I can provide Movies. A Telegram Auto Filter Bot. \n\n🔗Join Us : @tamil_links_official \n\n🔥வாழ்க தமிழ் வளர்க தமிழ்🔥:)
+<b>I can provide Movies. A Telegram Auto Filter Bot. \n\n😄 Join Our Channel 😄 : @Tamil_Links_Official \n\n🔥வாழ்க தமிழ் வளர்க தமிழ்🔥:)
 
 </b>"""
 
