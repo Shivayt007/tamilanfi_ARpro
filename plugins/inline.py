@@ -96,11 +96,13 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
-    buttons = [
-        [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
-        ]
-        ]
+    buttons =[[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+            [
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
     return InlineKeyboardMarkup(buttons)
 
 
