@@ -96,7 +96,7 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
-    buttons =[
+    buttons =[[
             InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
