@@ -103,7 +103,7 @@ def get_reply_markup(query):
             ],[
             InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
             ]]
-    return InlineKeyboardMarkup(buttons)
+   
 
 
 class InlineQueryResultCachedDocument(types.InlineQueryResult):
