@@ -17,12 +17,13 @@ logger = logging.getLogger(__name__)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
+  
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(Script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), disable_web_page_preview=True, reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
@@ -36,12 +37,13 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
+  
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -77,12 +79,13 @@ async def start(client, message):
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons =  [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
+  
         
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -109,12 +112,13 @@ async def start(client, message):
     if f_caption is None:
         f_caption = f"{files.file_name}"
     buttons =  [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
+  
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
