@@ -419,7 +419,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
             ]]
         
         await query.message.edit_text(
