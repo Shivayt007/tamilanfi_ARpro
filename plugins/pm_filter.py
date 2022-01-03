@@ -346,14 +346,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption=f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
-        buttons =  [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+        buttons =[[    
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
-            
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
@@ -396,12 +395,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"{title}"
-        buttons =  [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+        buttons =  [[    
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
         await query.answer()
         await client.send_cached_media(
@@ -414,12 +413,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
+        buttons =[[    
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
-            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
         
         await query.message.edit_text(
