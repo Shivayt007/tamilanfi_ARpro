@@ -21,7 +21,7 @@ async def start(client, message):
             [
             InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
   
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -41,7 +41,7 @@ async def start(client, message):
             [
             InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
   
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -83,7 +83,7 @@ async def start(client, message):
             [
             InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
-            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
   
         
