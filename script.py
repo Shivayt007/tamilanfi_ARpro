@@ -18,7 +18,7 @@ My name is <a href=https://t.me/{}>{}</a>!
 
     
 
-LOG_TEXT_G = """#NewGroup
+LOG_TEXT_P = """#NewGroup
 
 Group = {}(<code>{}</code>)
 
