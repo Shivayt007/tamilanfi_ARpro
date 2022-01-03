@@ -16,15 +16,13 @@ logger = logging.getLogger(__name__)
 @Client.on_message(filters.command("start"))
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
-        buttons = [
+        buttons = [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
-                
-            
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(Script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), disable_web_page_preview=True, reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
@@ -37,15 +35,13 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [
+        buttons = [[
+            InlineKeyboardButton('Join US ', url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
-                
-            
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('Discussion Group ', url='https://t.me/tamil_links_official')
+            ],[
+            InlineKeyboardButton('Search Here movie', switch_inline_query_current_chat='')
+            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -80,15 +76,13 @@ async def start(client, message):
             )
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons = [
+        buttons =  [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')
-                
-            ],
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
         
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -114,15 +108,13 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    buttons = [
+    buttons =  [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')
-                
-            ],
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
@@ -203,7 +195,7 @@ async def delete(bot, message):
             'mime_type': media.mime_type
             })
         if result.deleted_count:
-            await msg.edit('File is successfully deleted from database')
+            await msg.edit('File is #successfully deleted from database')
         else:
             # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
             # have original file name.
@@ -213,7 +205,7 @@ async def delete(bot, message):
                 'mime_type': media.mime_type
             })
             if result.deleted_count:
-                await msg.edit('File is successfully deleted from database')
+                await msg.edit('File is #successfully deleted from database ')
             else:
                 await msg.edit('File not found in database')
 

@@ -346,15 +346,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption=f_caption
         if f_caption is None:
             f_caption = f"{files.file_name}"
-        buttons = [
+        buttons =  [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
-                
-            
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
             
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -398,15 +396,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"{title}"
-        buttons = [
+        buttons =  [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
-                
-            
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
         await query.answer()
         await client.send_cached_media(
             chat_id=query.from_user.id,
@@ -418,13 +414,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton('search here movie', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('Join US ', url='https://t.me/tamil_links_official')],
+        buttons =  [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-            InlineKeyboardButton('Join US ', url='https://t.me/tamil_links_official')
-            ],]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
         
         await query.message.edit_text(
             text=Script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
@@ -851,7 +847,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>🎬 Title:</b> {search}\n</b>\n<b><a href='https://t.me/+q9NMdy0rY10zZWZl'>© IMDb (Series & Movies) Studio</a></b>\n\n<b>✍️ Note:</b> <s>This message will be Auto-deleted after 10 minutes to avoid copyright issues.</s>"
+        cap = f"<b>🎬 Title:</b> {search}\n</b>\n<b><a href='HTTPS://imdb.com>✍️ Note:</b> <b>This message will be Auto-deleted after 10 minutes to avoid #copyright issues.</b>\n<b>JOIN US : @tamil_links_official</b>"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
@@ -867,12 +863,12 @@ async def auto_filter(client, msg, spoll=False):
             await message.delete()
         except Exception as e:
             logger.exception(e)
-            fek = await message.reply_photo(photo="https://telegra.ph/file/82b5bbbab6d5e5593b6b2.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+            fek = await message.reply_photo(photo="https://telegra.ph/file/8af59ac8a12110eaec85d.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600)
             await fek.delete()
             await msg.delete()
     else:
-        fuk = await message.reply_photo(photo="https://telegra.ph/file/8b42f6caf6ef5fd76766f.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+        fuk = await message.reply_photo(photo="https://telegra.ph/file/8af59ac8a12110eaec85d.jpg", caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
         await fuk.delete()
         await msg.delete()

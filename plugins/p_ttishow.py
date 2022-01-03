@@ -36,30 +36,26 @@ async def save_group(bot, message):
                 pass
             await bot.leave_chat(message.chat.id)
             return
-        buttons = [
+        buttons =  [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
-                
-            
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
     else:
         for u in message.new_chat_members:
-            zaute = [
+            zaute = [[
+            InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
-                InlineKeyboardButton('Join us ', url='https://t.me/tamil_links_official')],
-                
-            
-            [
-                InlineKeyboardButton('Discussion Group', url=f'https://t.me/+y53tWFUw6Q43NzE9')
-            ]
-            ]
+            InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
+            ],[
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            ]]
             if (temp.MELCOW).get('welcome') is not None:
                 try:
                     await (temp.MELCOW['welcome']).delete()
