@@ -21,7 +21,7 @@ async def start(client, message):
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(Script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), disable_web_page_preview=True, reply_markup=reply_markup)
@@ -35,12 +35,12 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons =  [[
+        buttons = [[
             InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -76,12 +76,12 @@ async def start(client, message):
             )
         return
     if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons =   [[
+        buttons =  [[
             InlineKeyboardButton('🔗Join US🔗',url='https://t.me/tamil_links_official')],
             [
             InlineKeyboardButton('📭Discussion Group📬 ', url='https://t.me/discussion_hd_movies')
             ],[
-            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔍Search Here Movie🔎', switch_inline_query_current_chat=''), InlineKeyboardButton('About', callback_data='about')
             ]]
         
         await message.reply_photo(
