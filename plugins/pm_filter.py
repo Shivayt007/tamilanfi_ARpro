@@ -395,13 +395,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"{title}"
-        buttons =  [[    
-            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
-            [
-            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
-            ],[
-            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
-            ]]
+       
         await query.answer()
         await client.send_cached_media(
             chat_id=query.from_user.id,
