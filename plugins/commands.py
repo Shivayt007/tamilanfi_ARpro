@@ -2,10 +2,10 @@ import os
 import logging
 import random
 import asyncio
-from script import Script
+from Script import script
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS
@@ -16,40 +16,37 @@ logger = logging.getLogger(__name__)
 @Client.on_message(filters.command("start"))
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
-        buttons = [[
+        buttons = [[    
             InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
             InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
             InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
-  
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply(Script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), disable_web_page_preview=True, reply_markup=reply_markup)
+        await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
         if not await db.get_chat(message.chat.id):
             total=await client.get_chat_members_count(message.chat.id)
-            await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, "Unknown"))       
+            await client.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, "Unknown"))       
             await db.add_chat(message.chat.id, message.chat.title)
         return 
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
-        await client.send_message(LOG_CHANNEL, Script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
+        await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [[
+        buttons = [[    
             InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
             InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
             InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
-  
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=Script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
-            quote=True,
             parse_mode='html'
         )
         return
@@ -59,39 +56,36 @@ async def start(client, message):
         except ChatAdminRequired:
             logger.error("Make sure Bot is admin in Forcesub channel")
             return
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "Join Official Channel", url=invite_link.invite_link
-                )
-            ]
-        ]
-
-        if message.command[1] != "subscribe":
-            btn.append([InlineKeyboardButton(" 🔄 Try Again 👈 Tap me 🥰", callback_data=f"checksub#{message.command[1]}")])
-        await client.send_message(
-            chat_id=message.from_user.id,
-            text=Script.FORCESUB_TXT,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode="markdown"
-            )
-        return
-    if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
-        buttons =  [[
+        btn = [[    
             InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
             InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
             ],[
             InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
-  
-        
+
+        if message.command[1] != "subscribe":
+            btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{message.command[1]}")])
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="**Please Join My Updates Channel to use this Bot!**",
+            reply_markup=InlineKeyboardMarkup(btn),
+            parse_mode="markdown"
+            )
+        return
+    if len(message.command) ==2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
+        buttons = [[    
+            InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
+            [
+            InlineKeyboardButton('😄 Join Our Channel 😄', url='https://t.me/tamil_links_official')
+            ],[
+            InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
+            ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=Script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
-            quote=True,
             parse_mode='html'
         )
         return
@@ -110,7 +104,7 @@ async def start(client, message):
             logger.exception(e)
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"{files.file_name}"
+       f_caption = f"{files.file_name}"
     buttons =  [[
             InlineKeyboardButton('💬 Join Our Group 💬',url='https://t.me/discussion_hd_movies')],
             [
@@ -118,12 +112,10 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🔎 Search Here Movies 🔎', switch_inline_query_current_chat='')
             ]]
-  
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup(buttons)
         )
                     
 
@@ -199,7 +191,7 @@ async def delete(bot, message):
             'mime_type': media.mime_type
             })
         if result.deleted_count:
-            await msg.edit('File is #successfully deleted from database')
+            await msg.edit('File is successfully deleted from database')
         else:
             # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
             # have original file name.
@@ -209,7 +201,7 @@ async def delete(bot, message):
                 'mime_type': media.mime_type
             })
             if result.deleted_count:
-                await msg.edit('File is #successfully deleted from database ')
+                await msg.edit('File is successfully deleted from database')
             else:
                 await msg.edit('File not found in database')
 
@@ -222,12 +214,12 @@ async def delete_all_index(bot, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="✓ Yes", callback_data="autofilter_delete"
+                        text="YES", callback_data="autofilter_delete"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="Cancel ✗", callback_data="close_data"
+                        text="CANCEL", callback_data="close_data"
                     )
                 ],
             ]
